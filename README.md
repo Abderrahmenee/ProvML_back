@@ -75,6 +75,8 @@ This step utilizes the activations extracted in the previous step, To Train and 
 
 #### Attribution: Perform ML explanation on the `graph_model` to identify relevant nodes [Still not ready]
 
+Use [Structured_Charac.ipynb](/Structured_Charac.ipynb) to attribution-guided characterization characterization.
+---
 - ` gen_attributions.py`: this file explains how to transform generated activations to dataset and train an torch adversarial detection model. ` attributionUtils.py` holds different predefined architecture that cover all the dataset we research and produce satisfactory performance.
   ` Attributions :` in the same file we showcase the steps to generate the attributions of the models on a batch of input,
   
