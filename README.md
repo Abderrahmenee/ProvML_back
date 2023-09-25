@@ -69,8 +69,8 @@ This step utilizes the activations extracted in the previous step, To Train and 
 
   **Sample Commands:** <br />
 
-  > `python train_on_graph.py cifar10 cifar10_1 FGSM ./models/cifar10_1.pt` <br />
-  > `python train_on_graph.py mnist mnist_1 FGSM ./models/mnist_1.pt` <br />
+  > `python train_on_graph.py cifar10 cifar10_1 FGSM ./models/cifar10_1_graph.pt` <br />
+  > `python train_on_graph.py mnist mnist_1 FGSM ./models/mnist_1_graph.pt.pt` <br />
 
 
 #### Attribution: Perform ML explanation on the `graph_model` to identify relevant nodes [Still not ready]
