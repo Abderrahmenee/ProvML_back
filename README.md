@@ -4,7 +4,7 @@ We describe the supported datasets, attacks and pre-trained models provided with
 
 ### Datasets, Pre-trained Models, and Attacks:
 
-- **Datasets**: MNIST and CIFAR10 are autimatically loaded via Keras. To test ProvML on malware data, you need to download the [CuckooTraces](link here) and [EMBER] (link here) datasets and add them in the folder `./data/`. By default ProvML will look for them in that path<br />
+- **Datasets**: MNIST and CIFAR10 are autimatically loaded via Keras. To test ProvML on malware data, you need to download the [CuckooTraces]([link here](https://drive.google.com/file/d/11GgjGVEXQAAz09J_T7sziJdS6vF14cwu/view?usp=sharing)) and [EMBER] ([link here](https://ember.elastic.co/ember_dataset_2018_2.tar.bz2)) datasets and add them in the folder `./data/`. By default ProvML will look for them in that path<br />
 
 - **Pre-trained Models**: We offer pre-trained models: mnist_1 , mnist_2, mnist_3, cifar10_1, cuckoo_1, and ember_1 <br />
   These models are availabe to download [here](https://drive.google.com/drive/folders/1a0kdq4waz8SXU9gThsUmKsR0YTSuaEWO?usp=share_link). Once downloaded to 'ProvML/models/' directory, the 'model.txt' file has the model architecture details of each model.
@@ -38,8 +38,8 @@ We describe the supported datasets, attacks and pre-trained models provided with
   This parameter is optional.  if specified, ProvML will apply the attack on the dataset.
   (**Note**: if attack is None and the folder input is set to adversarial it will throw an Error) <br />
   **Sample Commands :** <br />
-    > `python activations_extractor.py mnist mnist_1 Ground_Truth  ` <br />
-    > `python activations_extractor.py mnist mnist_1 Benign  ` <br />
+    >  `python activations_extractor.py mnist mnist_1 Ground_Truth  ` <br />
+    >  `python activations_extractor.py mnist mnist_1 Benign  ` <br />
     > `python activations_extractor.py mnist mnist_1 Adversarial FGSM` <br />
     > `python activations_extractor.py cuckoo cuckoo_1 Adversarial CKO` <br />
     > `python activations_extractor.py ember ember_1 Adversarial EMB` <br />
@@ -69,20 +69,10 @@ This step utilizes the activations extracted in the previous step, To Train and 
 
   **Sample Commands:** <br />
 
-  > `python train_on_graph.py cifar10 cifar10_1 FGSM ./models/cifar10_1_graph.pt` <br />
-  > `python train_on_graph.py mnist mnist_1 FGSM ./models/mnist_1_graph.pt.pt` <br />
+  > `python train_on_graph.py cifar10 cifar10_1 FGSM ./models/cifar10_1.pt` <br />
+  > `python train_on_graph.py mnist mnist_1 FGSM ./models/mnist_1.pt` <br />
 
 
 #### Attribution: Perform ML explanation on the `graph_model` to identify relevant nodes [Still not ready]
 
-
-Use [Structured_Charac.ipynb](/Structured_Charac.ipynb) to attribution-guided characterization characterization.
-
----
-
-- ` gen_attributions.py`: this file explains how to transform generated activations to dataset and train an torch adversarial detection model. ` attributionUtils.py` holds different predefined architecture that cover all the dataset we research and produce satisfactory performance.
-  ` Attributions :` in the same file we showcase the steps to generate the attributions of the models on a batch of input,
-  
-  
-  - ` Attribution.py`: The thrid step: is to perform **Attributions** on the trained `graph_model`. This file should include a fucntion that takes as input a `graph_model` and `data_name`, the model should be imported automaticcaly from `Models/[data_name]/[[graph_model_name]`. Example: `Models/MNIST/graph_MNIST.pth`
-
+ Use [Structured_Charac.ipynb](/Structured_Charac.ipynb) to compute the proposed graph-related metrics for empirical characterization.
